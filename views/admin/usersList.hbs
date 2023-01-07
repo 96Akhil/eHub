@@ -1,0 +1,73 @@
+
+
+<div class="container mb-5" style="padding-top: 2rem; ">
+   
+    <div class="col-md-offset-1 col-md-15 mt-4" >
+        <div class="panel" style="background: linear-gradient(to left, #bbd42a, #94cec6);">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col col-sm-3 col-xs-12">
+                        <h4 class="title"  style="color: black;" >User's <span>List</span></h4>
+                    </div>
+                    {{!-- <div class="col-sm-9 col-xs-12 text-right">
+                        <div class="btn_group">
+                            <input type="text" class="form-control" placeholder="">
+                            <button class="btn btn-default" title="Reload">Search</button>
+                        </div>
+                    </div> --}}
+                </div>
+            </div>
+            <div class="panel-body table-responsive">
+                <table class="table" id="myUsertable" >
+                    <thead>
+                        <tr>
+                            <th style="color: black;">Name</th>
+                            <th style="color: black;">E-mail</th>
+                            <th style="color: black;">Mobile</th>
+                            <th style="color: black;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each users}}
+                        <tr>
+                            <td style="color: black;"> {{this.name}} </td>
+                            <td style="color: black;"> {{this.email}} </td>
+                            <td style="color: black;"> {{this.mobile}} </td>
+                            <td>
+                                <ul class="action-list">
+                                    <li><a href="/admin/editUser/{{this._id}}" data-tip="edit"><i class="fa fa-edit" style="color: black;"></i></a></li>
+                                    {{#if this.isBlocked}}
+                                    <li><a href="/admin/userBlock/{{this._id}}" data-tip="block"><button type="button" class="btn btn-primary btn-sm">Unblock</button></a></li>
+                                    {{else}}
+                                    <li><a href="/admin/userBlock/{{this._id}}" data-tip="block"><button type="button" class="btn btn-danger btn-sm">Block</button></a></li>
+                                    {{/if}}
+                                    {{!-- <i class="fa fa-ban"></i> --}}
+                                </ul>
+                            </td>
+                        </tr>
+                        {{/each}}
+                       
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="container d-flex">
+        <div class="row mt-5">
+            <a href="/admin/exportUsers" class="btn btn-success">Export users</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready( function () {
+    $('#myUsertable').DataTable();
+} );
+</script>

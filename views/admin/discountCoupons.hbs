@@ -1,0 +1,63 @@
+
+
+<div class="container mb-5" style="padding-top: 2rem; ">
+    <div class="container d-flex">
+        <div class="row mt-2 ">
+            <a href="/admin/addCoupons" class="btn btn-success">Add Coupons</a>
+        </div>
+    </div>
+    <div class="col-md-offset-1 col-md-10 mt-4" >
+        <div class="panel" style="background: linear-gradient(to left, #570a75, #1e8375);">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col col-sm-3 col-xs-12">
+                        <h4 class="title">Coupons</h4>
+                    </div>
+                    <div class="col-sm-9 col-xs-12 text-right">
+                        <div class="btn_group">
+                            <input type="text" class="form-control" placeholder="">
+                            <button class="btn btn-default" title="Reload">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Coupon Code</th>
+                            <th>Discount Value</th>
+                            <th>Action</th>
+            
+                        </tr>
+                    </thead>
+                    <tbody>
+                     {{#each couponData}}
+                        <tr>
+                            <td> {{this.name}} </td>
+                            <td>{{this.discount}}%</td>
+                            <td>
+                                <ul class="action-list">  
+                                    {{#if this.isBlocked}}
+                                    <li><a href="/admin/blockCoupon/{{this._id}}" data-tip="block"><button type="button" class="btn btn-primary btn-sm">Unblock</button></a></li>
+                                    {{else}}
+                                    <li><a href="/admin/blockCoupon/{{this._id}}" data-tip="block"><button type="button" class="btn btn-danger btn-sm">Block</button></a></li>
+                                    {{/if}}  
+                                    {{!-- <li><a href="/admin/blockCoupon/{{this._id}}" data-tip="block" onclick="return confirm('Kindly confirm if you want to delete {{this.name}}? ')"><i class="fa fa-trash"></i></a></li> --}}
+                                </ul>
+                            </td>
+                        </tr>
+                       
+                    </tbody>
+                    {{/each}}
+                </table>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

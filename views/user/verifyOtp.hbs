@@ -1,0 +1,36 @@
+<section class="h-100 h-custom" style="background: linear-gradient(to right, #d6a724, #6dee5c);">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-8 col-xl-6">
+                <div class="card rounded-3">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Registration Info</h3>
+
+                        <form class="px-md-2" action="/verifyOtp" method="post">
+
+                            <div>
+                                <p style="color: purple; font-size:20px;"> {{message}} </p>
+                            </div>    
+                            
+                            <div class="form-outline mb-2">
+                                <label class="form-label"  for="form3Example1q">Enter your Otp</label>
+                                <input type="text" id="Otp" name="otp" class="form-control"/>
+                                <label for="error" id="phoneerror" class="error"></label>
+                            </div> 
+
+                            <div class="form-outline mb-2">
+                                <input type="hidden" name="checkOtp" value="{{otp}}">
+                                <input type="hidden" name="user" value="{{user}}">
+                            </div>                             
+
+                            <button type="submit" class="btn btn-success btn-lg mb-1">Submit</button>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

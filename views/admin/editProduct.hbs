@@ -1,0 +1,58 @@
+<div class="ex-form-1 pt-5 pb-5">
+    <div class="container" style="background:linear-gradient(to right, #2980b9, #2c3e50); border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 0 5px rgba(0,0,0,0.05),0 0 0 10px rgba(0,0,0,0.05); ">
+        <div class="row">
+            <div class="col-xl-6 offset-xl-3">
+                <div class="text-box mt-5 mb-5">
+                    <h2 style="color: white;">Edit product</h2>
+
+                    <div>
+                        <p style="color: purple; font-size:20px;"> {{successmessage}} </p>
+                    </div>
+
+                    <!-- Sign Up Form -->
+                    <form action="/admin/editProduct/{{editProductData._id}}" enctype="multipart/form-data" method="post">
+
+                        <div class="mb-4 form-floating">
+                            <input type="text" name="name" class="form-control" id="floatingInput"
+                                placeholder="Product Name"  value="{{editProductData.name}}">
+                            <label for="floatingInput">Name</label>
+                        </div>
+                        <div class="mb-4 form-floating">
+                            <input type="text" name="category" class="form-control" id="floatingInput2"
+                                placeholder="Product Category" required value="{{editProductData.category}}">
+                            <label for="floatingInput">Category</label>
+                        </div>
+                        <div class="mb-4 form-floating">
+                            <input type="text" name="price" class="form-control" id="floatingPassword"
+                                placeholder="Price" required value="{{editProductData.price}}">
+                            <label for="floatingPassword">Price</label>
+                        </div>
+                        <div class="mb-4 form-floating">
+                            <input type="text" name="quantity" class="form-control" id="floatingPassword"
+                                placeholder="Quantity" required  value="{{editProductData.quantity}}">
+                            <label for="floatingPassword">Quantity</label>
+                        </div>
+                        <div class="mb-4 form-floating">
+                            <input type="text" name="description" class="form-control" id="floatingInput2"
+                                placeholder="Product description" style="height:7rem;" required value="{{editProductData.description}}">
+                            <label for="floatingInput">Product Description</label>
+                        </div>
+                        <div class="mb-4 form-floating">
+                            
+                            <input type="file" name="image" class="form-control" id="floatingInput2"
+                                style="padding:2rem">
+                            <label for="floatingInput">Image</label>
+                            <img src="/product-image/{{editProductData.image}}" style="width:80px;height: 80px;" alt="">
+                        </div>
+                        <label for="submit" id="success"></label>
+                        <button type="submit" class="btn btn-warning">Submit</button>
+                    </form>
+                    <!-- end of sign up form -->
+
+                </div> <!-- end of text-box -->
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div>

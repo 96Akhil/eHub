@@ -1,0 +1,79 @@
+<div class="container mb-5" style="padding-top: 2rem;">
+    <div class="col-md-offset-1 col-md-15 mt-4">
+        <div class="panel" style="background: linear-gradient(to left, #bbd42a, #94cec6);">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col col-sm-3 col-xs-12">
+                        <h4 class="title"  style="color: black;">Orders </h4>
+                    </div>
+                    {{!-- <div class="col-sm-9 col-xs-12 text-right">
+                        <div class="btn_group">
+                            <input type="text" class="form-control" placeholder="">
+                            <button class="btn btn-default" title="Reload">Search</button>
+                        </div>
+                    </div> --}}
+                </div>
+            </div>
+            <div class="panel-body table-responsive">
+                <table class="table" id="myOrdertable">
+                    <thead>
+                        <tr>
+                            <th  style="color: black;">Customer Name</th>
+                            <th  style="color: black;">OrderId</th>
+                            <th  style="color: black;">Amount</th>
+                            <th  style="color: black;">Payment</th>
+                            <th  style="color: black;">Status</th>
+                            <th  style="color: black;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each orderData}}
+                        <tr>
+                            <td  style="color: black;"> {{this.userName}} </td>
+                            <td  style="color: black;"> {{this._id}} </td>
+                            <td  style="color: black;"> {{this.amount}}</td>
+                            <td  style="color: black;"> {{this.payment}} </td>
+                            <td  style="color: black;"> {{this.status}} </td>
+                            <td>
+                                {{#if this.isAttempted}}
+                                <div class="dropdown mt-2" style="margin-left: 2rem;">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Status
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" href="/admin/orderDeliver/{{this._id}}">Deliver</a></li>
+                                        <li><a class="dropdown-item" href="/admin/orderCancel/{{this._id}}">Cancel</a></li>
+                                    </ul>
+                                </div>
+                                {{else}}
+
+                                {{/if}}
+                            </td>
+                        </tr>
+                        {{/each}}
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="container d-flex">
+        <div class="row mt-5">
+            <a href="/admin/exportOrders" class="btn btn-success">Export orders</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready( function () {
+    $('#myOrdertable').DataTable();
+} );
+</script>

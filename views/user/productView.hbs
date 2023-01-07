@@ -1,0 +1,182 @@
+<section class="bg-light">
+    <div class="container pb-5">
+        <div class="row">
+            <div class="col-lg-5 mt-5">
+                {{#each products}}
+                <div class="card mb-3">
+                   <img class="mainImage" src="/product-image/{{this.image}}" alt="Card image cap" id="product-detail">
+                </div>
+                <div class="row">
+                    <!--Start Controls-->
+                    <div class="col-1 align-self-center">
+                        <a href="#multi-item-example" role="button" data-bs-slide="prev">
+                            <i class=""></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </div>
+                    <!--End Controls-->
+                    <!--Start Carousel Wrapper-->
+                    <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item"
+                        data-bs-ride="carousel">
+                        <!--Start Slides-->
+                        <div class="carousel-inner product-links-wap" role="listbox">
+
+                            <!--First slide-->
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <a href="#">
+                                            <img class="card-img img-fluid" src="/product-image/{{this.image}}"
+                                                style="border:0.5px solid grey; border-radius:5px;">
+                                        </a>
+                                    </div>
+                                    <div class="col-4">
+                                        <a href="#">
+                                            <img class="card-img img-fluid" src="/product-image/{{this.image}} "
+                                                alt="Product Image 2"
+                                                style="border:0.5px solid grey; border-radius:5px;">
+                                        </a>
+                                    </div>
+                                    <div class="col-4">
+                                        <a href="#">
+                                            <img class="card-img img-fluid" src="/product-image/{{this.image}}"
+                                                alt="Product Image 3"
+                                                style="border:0.5px solid grey; border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--/.First slide-->
+                        </div>
+                        <!--End Slides-->
+                    </div>
+
+                </div>
+            </div>
+            <!-- col end -->
+            <div class="col-lg-7 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="h2"> {{this.name}} </h1>
+                        <p class="h3 py-2"> ₹ {{this.price}}/- </p>
+
+                        <p class="py-2">
+                            <i class="fa fa-star text-warning"></i>
+                            <i class="fa fa-star text-warning"></i>
+                            <i class="fa fa-star text-warning"></i>
+                            <i class="fa fa-star text-warning"></i>
+                            <i class="fa fa-star text-secondary"></i>
+                            <span class="list-inline-item text-dark">Rating 4.8 | 36 Comments</span>
+                        </p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <h6>Category:</h6>
+                            </li>
+                            <li class="list-inline-item">
+                                <p class="text-muted"><strong>{{this.category}}</strong></p>
+                            </li>
+                        </ul>
+
+                        <h6>Description:</h6>
+                        <p> {{this.description}} </p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <h6>Avaliable Color :</h6>
+                            </li>
+                            <li class="list-inline-item">
+                                <p class="text-muted"><strong>White / Black</strong></p>
+                            </li>
+                        </ul>
+
+
+                        <form action="/productToCart" method="POST">
+                            <input type="hidden" name="prodId" value="{{this._id}}">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <ul class="list-inline pb-3">
+                                        <li class="list-inline-item text-right">
+                                             <strong>Quantity:</strong>
+                                        </li>
+                                        <li class="list-inline-item"><input type="number" name="quantity" id="var-value" value="1" min="1" max="5">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>  
+
+                            <div class="row pb-3">
+                                <div class="col d-grid">
+                                    <button type="submit" class="btn btn-success btn-lg">Add To Cart</button>
+                                    {{!-- <a href="/productToCart/{{this._id}}"><button type="submit"
+                                            class="btn btn-success btn-lg">Add To Cart</button></a> --}}
+                                </div>
+                        </form>
+                        <div class="col d-grid">
+                            <a href="/productToList/{{this._id}}"> <button type="button"
+                                    class="btn btn-primary btn-lg">Add To Wishlist</button> </a>
+                        </div>
+                    </div>
+
+                    {{/each}}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+</section>
+<script>
+    'use strict';
+    $(document).ready(function () {
+
+        // Accordion
+        var all_panels = $('.templatemo-accordion > li > ul').hide();
+
+        $('.templatemo-accordion > li > a').click(function () {
+            console.log('Hello world!');
+            var target = $(this).next();
+            if (!target.hasClass('active')) {
+                all_panels.removeClass('active').slideUp();
+                target.addClass('active').slideDown();
+            }
+            return false;
+        });
+        // End accordion
+
+        // Product detail
+        $('.product-links-wap a').click(function () {
+            var this_src = $(this).children('img').attr('src');
+            $('#product-detail').attr('src', this_src);
+            return false;
+        });
+        $('#btn-minus').click(function () {
+            var val = $("#var-value").html();
+            val = (val == '1') ? val : val - 1;
+            $("#var-value").html(val);
+            $("#product-quanity").val(val);
+            return false;
+        });
+        $('#btn-plus').click(function () {
+            var val = $("#var-value").html();
+            val++;
+            $("#var-value").html(val);
+            $("#product-quanity").val(val);
+            return false;
+        });
+        $('.btn-size').click(function () {
+            var this_val = $(this).html();
+            $("#product-size").val(this_val);
+            $(".btn-size").removeClass('btn-secondary');
+            $(".btn-size").addClass('btn-success');
+            $(this).removeClass('btn-success');
+            $(this).addClass('btn-secondary');
+            return false;
+        });
+        // End roduct detail
+
+    });
+
+
+
+</script>

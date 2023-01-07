@@ -1,0 +1,62 @@
+<section class="h-100 h-custom" style="background: linear-gradient(to right, #d6a724, #6dee5c);">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-8 col-xl-6">
+                <div class="card rounded-3">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
+                        class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
+                        alt="Sample photo">
+                    <div class="card-body p-4 p-md-5" style=>
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Registration Info</h3>
+
+                        <form class="px-md-2" action="/signup" enctype="application/x-www-form-urlencoded" method="post">
+
+                            <div>
+                                <p style="color: purple; font-size:20px;"> {{message}} </p>
+                            </div>    
+
+                            <div class="form-outline mb-1">
+                                <label class="form-label" for="form3Example1q">Name</label>
+                                <input type="text" id="username" name="name" class="form-control" onkeyup="validateName()"/>
+                                <label for="error" id="usernameerror" class="error"></label>
+                            </div>
+
+                            <div class="form-outline mb-2">
+                                <label class="form-label"  for="form3Example1q">E-mail</label>
+                                <input type="text" id="email" name="email" class="form-control" onkeyup="validateEmail()"/>
+                                <label for="error" id="emailerror" class="error"></label>
+                            </div>
+                            
+                            <div class="form-outline mb-2">
+                                
+                                <label class="form-label"  for="form3Example1q">Mobile No.</label>
+                                <input type="text" id="phone" name="phone" class="form-control" onkeyup="validatePhone()"/>
+                                <label for="error" id="phoneerror" class="error"></label>
+                            </div>
+
+                            <div class="form-outline mb-2">
+                                <label class="form-label"  for="form3Example1q">Password</label>
+                                <input type="password" id="pwd" name="password" class="form-control" onkeyup="validatepwd();" />
+                                 <label for="error" id="pwderror" class="error"></label>
+                            </div>
+
+                            <div class="form-outline mb-2">
+                                <label class="form-label"  for="form3Example1q">Confirm Password</label>
+                                <input type="password" id="confirmpwd" name="confirmpassword" class="form-control" onkeyup="pwdmatch();" />
+                                <label for="error" id="confirmpwderror" class="error"></label>
+                            </div>
+
+                            
+
+                            <button type="submit" class="btn btn-success btn-lg mb-1" onclick="return validate();">Submit</button>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/javascript/validation.js"></script>
+</section>

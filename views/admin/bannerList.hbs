@@ -1,0 +1,62 @@
+
+
+<div class="container mb-5" style="padding-top: 2rem; ">
+    <div class="container d-flex">
+        <div class="row mt-2 ">
+            <a href="/admin/addBanner" class="btn btn-success">Add Banner</a>
+        </div>
+    </div>
+    <div class="col-md-offset-1 col-md-10 mt-4" >
+        <div class="panel" style="background: linear-gradient(to left, #75590a, #2366aa);">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col col-sm-3 col-xs-12">
+                        <h4 class="title">Banners</h4>
+                    </div>
+                    <div class="col-sm-9 col-xs-12 text-right">
+                        <div class="btn_group">
+                            <input type="text" class="form-control" placeholder="">
+                            <button class="btn btn-default" title="Reload">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                     {{#each bannerData}}
+                        <tr>
+                            
+                            <td><img src="/product-image/{{this.image}}" style="width:50px;height: 45px;" alt=""></td>
+                            <td> {{this.name}} </td>
+                            <td>
+                                <ul class="action-list">    
+                                    {{#if this.isActive}}
+                                    Active Banner
+                                    {{else}}
+                                    <li><a href="/admin/selectBanner/{{this._id}}" data-tip="block"><button type="button" class="btn btn-primary btn-sm">Select</button></a></li>
+                                    {{/if}}  
+                                </ul>
+                            </td>
+                        </tr>
+                       
+                    </tbody>
+                    {{/each}}
+                </table>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

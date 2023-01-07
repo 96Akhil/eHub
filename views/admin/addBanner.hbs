@@ -1,0 +1,53 @@
+<div class="ex-form-1 pt-5 pb-5">
+    <div class="container" style="background:linear-gradient(to right, #2980b9, #2c3e50); border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 0 5px rgba(0,0,0,0.05),0 0 0 10px rgba(0,0,0,0.05); ">
+        <div class="row">
+            <div class="col-xl-6 offset-xl-3">
+                <div class="text-box mt-5 mb-5">
+                    <h2 style="color: white;">Add product</h2>
+
+                    <div>
+                        <p style="color: purple; font-size:20px;"> {{successMessage}} </p>
+                    </div>
+
+                    <!-- Sign Up Form -->
+                    <form action="/admin/addBanner" enctype="multipart/form-data" method="post">
+
+                        <div class="mb-4 form-floating">
+                            <input type="text" name="name" class="form-control" id="floatingInput"
+                                placeholder="Product Name" required>
+                            <label for="floatingInput">Name</label>
+                        </div>
+                        
+                        <div class="mb-4 form-floating">
+                            <input type="file" name="image" class="form-control" id="img"
+                                style="padding:2rem" required>
+                            <label for="floatingInput">Image</label>
+                            <img src="" id="imgPreview" alt="">
+                        </div>
+                        <label for="submit" id="success"></label>
+                        <button type="submit" class="btn btn-warning">Submit</button>
+                    </form>
+                    <!-- end of sign up form -->
+
+                </div> <!-- end of text-box -->
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div>
+
+<script>
+    function readURL(input){
+        if(input.files && input.files[0]){
+            const reader = new FileReader();
+            reader.onload = function(e){
+                $('#imgPreview').attr('src',e.target.result).width(100).height(100);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $('#img').change(function(){
+        readURL(this);
+    });
+</script>

@@ -1,0 +1,40 @@
+<div class="container" style="max-width: inherit;">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/images/logo.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="dropdown mt-2" style="margin-left: 2rem;">
+ <h1>{{name}}</h1>
+</div>
+
+<div></div>
+<div class="container-fluid mt-2 mb-5">
+    <div class="row">
+        {{#each products}}
+        <div class="col-md-3" style="display: flex; flex-wrap:wrap;">
+            <div class="card mt-5"
+                style=" width: 24rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);background-color:lightgray">
+                <a href="/productView/{{this._id}}"><img src=" /product-image/{{this.image}}" class="card-img-top"
+                        alt="..." style="height: 18rem;"></a>
+                <div class="card-body">
+                    <div style="height: 4rem;">
+                        <p class="card-text" style="font-size: 14px;">{{this.name}} <br> {{this.category}} </p>
+                    </div>
+                    <h3 class="card-text"> ₹ {{this.price}}/- </h3>
+
+                    <a href="/addtoCart/{{this._id}}" class="btn btn-primary">Add to cart</a>
+                    <a href="/addtoList/{{this._id}}" class="link" style="font-size: 12px; padding-left: 1.5rem">Add to
+                        Wishlist</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+</div>

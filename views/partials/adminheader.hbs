@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/images/logo-final-removebg-preview.png" alt="Bootstrap" width="140" height="55">
+        </a>
+        <a class="navbar-brand" href="/admin" style="color: white;">Admin</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/admin/usersList"
+                        style="color: white;">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/products" style="color: white;">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/orderList" style="color: white;">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/categories" style="color: white;">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/coupons" style="color: white;">Coupons</a>
+                </li>
+            </ul>
+
+            <div class="dropdown" style="margin-right: 3rem;">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{#if admin}}
+                    {{user.name}}
+                    {{else}}
+                    Account
+                    {{/if}}
+
+                </button>
+                <ul class="dropdown-menu">
+                    {{#if admin}}
+                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                    {{else}}
+                    <li><a class="dropdown-item" href="/login">Login</a></li>
+                    {{/if}}
+
+
+                </ul>
+
+            </div>
+            {{!-- <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> --}}
+        </div>
+    </div>
+</nav>

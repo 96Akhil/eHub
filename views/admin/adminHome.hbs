@@ -1,0 +1,40 @@
+<div class="container mt-3">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/product-image/{{bannerData}}" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="margin-top: 1rem; margin-left:2rem; margin-bottom:2rem;">
+<a href="/admin/bannerList"><button type="button" class="btn btn-primary btn-lg">Banners</button></a>    
+</div>
+
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+
+<script>
+    const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>

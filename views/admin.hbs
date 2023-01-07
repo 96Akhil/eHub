@@ -1,0 +1,40 @@
+<section class="h-100 h-custom" style="background: linear-gradient(to right, #d6a724, #6dee5c);">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-8 col-xl-6">
+                <div class="card rounded-3">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
+                        class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
+                        alt="Sample photo">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-6 pb-2 pb-md-0 mb-md-2 px-md-2">User Login</h3>
+
+                        <form class="px-md-2" action="/login" enctype="application/x-www-form-urlencoded" method="post">
+
+                            <div>
+                                <p style="color: purple; font-size:20px;"> {{loginmessage}} </p>
+                            </div> 
+
+                            <div class="form-outline mb-2">
+                                <label class="form-label"  for="form3Example1q">E-mail</label>
+                                <input type="text" id="email" name="email" class="form-control"/>
+                                <label for="error" id="emailerror" class="error"></label>
+                            </div>
+
+                            <div class="form-outline mb-2">
+                                <label class="form-label"  for="form3Example1q">Password</label>
+                                <input type="password" id="pwd" name="password" class="form-control"/>
+                                 <label for="error" id="pwderror" class="error"></label>
+                            </div>
+
+                            <button type="submit" class="btn btn-success btn-lg mb-1">Submit</button>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
